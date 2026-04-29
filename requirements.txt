@@ -1,9 +1,9 @@
--e .
 crewai
 crewai-tools
-gradio
+gradio==5.49.1
 openai
 python-dotenv
 pydantic
 pyyaml
 pandas
+litellm

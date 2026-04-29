@@ -1,8 +1,15 @@
 ---
-title: AutoDev_Crew_Studio
-app_file: app.py
+title: AutoDev Crew Studio
+emoji: 🚀
+colorFrom: orange
+colorTo: blue
 sdk: gradio
 sdk_version: 5.49.1
+app_file: app.py
+python_version: 3.11
+pinned: false
+license: mit
+short_description: Agentic AI software engineering studio using CrewAI, Gradio, and OpenAI GPT-4o.
 ---
 # 🚀 AutoDev Crew — Agentic AI Software Engineering Studio
 
