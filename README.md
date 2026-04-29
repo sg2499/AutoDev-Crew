@@ -2,7 +2,7 @@
 title: AutoDev_Crew_Studio
 app_file: app.py
 sdk: gradio
-sdk_version: 6.13.0
+sdk_version: 5.49.1
 ---
 # 🚀 AutoDev Crew — Agentic AI Software Engineering Studio
 
