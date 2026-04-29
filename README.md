@@ -48,13 +48,13 @@ AutoDev Crew is shared as a learning-focused, portfolio-grade reference project.
 
 Please use this project to learn:
 
-- How multi-agent AI systems can be structured,
-- How CrewAI agents can collaborate on software-development tasks,
-- How validation and repair loops can improve generated outputs,
-- How Gradio can be used to build interactive AI product dashboards,
-- How OpenAI GPT-4o can power agentic workflows,
-- How production assets like Docker, GitHub Actions, reports, and deployment files can be generated,
-- And how to think like an AI product builder instead of only a prompt user.
+- how multi-agent AI systems can be structured,
+- how CrewAI agents can collaborate on software-development tasks,
+- how validation and repair loops can improve generated outputs,
+- how Gradio can be used to build interactive AI product dashboards,
+- how OpenAI GPT-4o can power agentic workflows,
+- how production assets like Docker, GitHub Actions, reports, and deployment files can be generated,
+- and how to think like an AI product builder instead of only a prompt user.
 
 The best way to use this repository is to study the architecture, understand the decisions, identify what can be improved, and then build your **own version** with your **own ideas, workflows, branding, improvements, and use cases**.
 
@@ -137,10 +137,10 @@ For public deployment, always keep user keys session-level and avoid storing the
 
 Most AI coding demos are either:
 
-- Simple prompt wrappers,
-- Single-file code generators,
-- Static chatbot demos,
-- Or manually curated examples.
+- simple prompt wrappers,
+- single-file code generators,
+- static chatbot demos,
+- or manually curated examples.
 
 AutoDev Crew is designed to show a more realistic workflow:
 
@@ -295,11 +295,11 @@ Recommended repair attempts for complex apps:
 LLM-generated UI can occasionally produce problems such as:
 
 - `[object Object]` in dataframes
-- Empty tabs
-- Invalid `gr.Interface` usage
-- Unhandled callback errors
-- Mismatched callback outputs
-- Raw nested objects in table cells
+- empty tabs
+- invalid `gr.Interface` usage
+- unhandled callback errors
+- mismatched callback outputs
+- raw nested objects in table cells
 
 To reduce these issues, AutoDev Crew includes a resilience layer that can replace an unreliable generated app with a safer deterministic Gradio interface based on the verified backend API.
 
@@ -472,7 +472,7 @@ assets/generated-app-preview.png
 
 This screenshot should show the main project generation dashboard where users enter their OpenAI API key, project name, backend module, class name, requirements, output folder, and repair attempts.
 
-![AutoDev Crew Studio Home](assets/dashboard-home.png)
+![AutoDev Crew Studio Home](assets/generate-project-tab.png)
 
 ---
 
@@ -480,7 +480,7 @@ This screenshot should show the main project generation dashboard where users en
 
 This screenshot should show the validation status, repaired checks, syntax checks, unit test execution, and repair-loop information.
 
-![Validation Report](assets/validation-report.png)
+![Validation Report](assets/validation-report-tab.png)
 
 ---
 
@@ -488,7 +488,7 @@ This screenshot should show the validation status, repaired checks, syntax check
 
 This screenshot should show the generated file index, selected file preview, and project ZIP download button.
 
-![Generated Files Preview](assets/generated-files.png)
+![Generated Files Preview](assets/generated-files-tab.png)
 
 ---
 
@@ -496,7 +496,7 @@ This screenshot should show the generated file index, selected file preview, and
 
 This screenshot should show Dockerfile, Docker Compose, GitHub Actions, deployment guide, production manifest, and recommended run commands.
 
-![Production Assets](assets/production-assets.png)
+![Production Assets](assets/production-assets-tab.png)
 
 ---
 
@@ -504,17 +504,10 @@ This screenshot should show Dockerfile, Docker Compose, GitHub Actions, deployme
 
 This screenshot should show saved output folders and the ability to reload previous generated runs.
 
-![Recent Runs](assets/recent-runs.png)
+![Recent Runs](assets/recent-runs-tab.png)
 
 ---
 
-### 6. Generated App Preview
-
-This screenshot should show one of the generated apps running, such as a quiz builder, clinic scheduler, support ticket manager, or inventory control system.
-
-![Generated App Preview](assets/generated-app-preview.png)
-
----
 
 ## 🚀 Quick Start
 
@@ -916,15 +909,15 @@ The `examples/requirements/` folder contains multiple sample requirement files.
 
 Use them to test how AutoDev Crew handles:
 
-- CRUD Apps
-- Scheduling Apps
-- Finance Apps
-- Education Apps
-- Operations Trackers
-- Calculators
-- Content Generators
-- Inventory Systems
-- Reporting Dashboards
+- CRUD apps
+- scheduling apps
+- finance apps
+- education apps
+- operations trackers
+- calculators
+- content generators
+- inventory systems
+- reporting dashboards
 
 Recommended order:
 
@@ -972,15 +965,15 @@ For complex apps, use:
 
 Repair attempts can fix:
 
-- Syntax Errors
-- Test Failures
-- Frontend/Backend Mismatches
-- Invalid Gradio Usage
-- Callback Output Mismatches
-- Enum Naming Mistakes
-- Class Constant Mistakes
-- Missing Error Handling
-- Bad Table Formatting
+- syntax errors
+- test failures
+- frontend/backend mismatches
+- invalid Gradio usage
+- callback output mismatches
+- enum naming mistakes
+- class constant mistakes
+- missing error handling
+- bad table formatting
 
 ---
 
@@ -990,16 +983,16 @@ AutoDev Crew is powerful, but it is not magic.
 
 It may not perfectly handle:
 
-- Very large enterprise systems
-- Full authentication systems
-- Complex databases
-- Multi-user concurrency
-- Real payment gateways
-- Production security hardening
-- Complex frontend design systems
-- Advanced DevOps infrastructure
-- Highly regulated medical/legal/financial workflows
-- Apps requiring external APIs not described in detail
+- very large enterprise systems
+- full authentication systems
+- complex databases
+- multi-user concurrency
+- real payment gateways
+- production security hardening
+- complex frontend design systems
+- advanced DevOps infrastructure
+- highly regulated medical/legal/financial workflows
+- apps requiring external APIs not described in detail
 
 Use it as an AI software generation studio and starting-point builder.
 
