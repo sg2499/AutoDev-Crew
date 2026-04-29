@@ -1,0 +1,401 @@
+[
+  {
+    "slug": "crm_lead_tracker",
+    "project_name": "CRM Lead Tracker",
+    "module_name": "lead_tracker",
+    "class_name": "LeadTracker",
+    "requirements_file": "examples/crm_lead_tracker_requirements.md"
+  },
+  {
+    "slug": "appointment_scheduler",
+    "project_name": "Clinic Appointment Scheduler",
+    "module_name": "appointment_scheduler",
+    "class_name": "AppointmentScheduler",
+    "requirements_file": "examples/appointment_scheduler_requirements.md"
+  },
+  {
+    "slug": "student_gradebook",
+    "project_name": "Student Gradebook Manager",
+    "module_name": "gradebook",
+    "class_name": "Gradebook",
+    "requirements_file": "examples/student_gradebook_requirements.md"
+  },
+  {
+    "slug": "course_enrollment",
+    "project_name": "Course Enrollment Manager",
+    "module_name": "course_enrollment",
+    "class_name": "CourseEnrollmentManager",
+    "requirements_file": "examples/course_enrollment_requirements.md"
+  },
+  {
+    "slug": "invoice_manager",
+    "project_name": "Invoice and Payment Tracker",
+    "module_name": "invoice_manager",
+    "class_name": "InvoiceManager",
+    "requirements_file": "examples/invoice_manager_requirements.md"
+  },
+  {
+    "slug": "subscription_billing",
+    "project_name": "Subscription Billing Manager",
+    "module_name": "subscription_billing",
+    "class_name": "SubscriptionBillingManager",
+    "requirements_file": "examples/subscription_billing_requirements.md"
+  },
+  {
+    "slug": "hr_leave_tracker",
+    "project_name": "HR Leave Request Tracker",
+    "module_name": "leave_tracker",
+    "class_name": "LeaveTracker",
+    "requirements_file": "examples/hr_leave_tracker_requirements.md"
+  },
+  {
+    "slug": "attendance_tracker",
+    "project_name": "Employee Attendance Tracker",
+    "module_name": "attendance_tracker",
+    "class_name": "AttendanceTracker",
+    "requirements_file": "examples/attendance_tracker_requirements.md"
+  },
+  {
+    "slug": "library_manager",
+    "project_name": "Library Book Lending Manager",
+    "module_name": "library_manager",
+    "class_name": "LibraryManager",
+    "requirements_file": "examples/library_manager_requirements.md"
+  },
+  {
+    "slug": "asset_maintenance",
+    "project_name": "Office Asset Maintenance Tracker",
+    "module_name": "asset_maintenance",
+    "class_name": "AssetMaintenanceTracker",
+    "requirements_file": "examples/asset_maintenance_requirements.md"
+  },
+  {
+    "slug": "restaurant_order_manager",
+    "project_name": "Restaurant Order Manager",
+    "module_name": "restaurant_orders",
+    "class_name": "RestaurantOrderManager",
+    "requirements_file": "examples/restaurant_order_manager_requirements.md"
+  },
+  {
+    "slug": "gym_membership",
+    "project_name": "Gym Membership Manager",
+    "module_name": "gym_membership",
+    "class_name": "GymMembershipManager",
+    "requirements_file": "examples/gym_membership_requirements.md"
+  },
+  {
+    "slug": "habit_tracker",
+    "project_name": "Personal Habit Tracker",
+    "module_name": "habit_tracker",
+    "class_name": "HabitTracker",
+    "requirements_file": "examples/habit_tracker_requirements.md"
+  },
+  {
+    "slug": "meal_planner",
+    "project_name": "Weekly Meal Planner",
+    "module_name": "meal_planner",
+    "class_name": "MealPlanner",
+    "requirements_file": "examples/meal_planner_requirements.md"
+  },
+  {
+    "slug": "event_registration",
+    "project_name": "Event Registration Manager",
+    "module_name": "event_registration",
+    "class_name": "EventRegistrationManager",
+    "requirements_file": "examples/event_registration_requirements.md"
+  },
+  {
+    "slug": "donation_tracker",
+    "project_name": "Nonprofit Donation Tracker",
+    "module_name": "donation_tracker",
+    "class_name": "DonationTracker",
+    "requirements_file": "examples/donation_tracker_requirements.md"
+  },
+  {
+    "slug": "fundraising_campaign",
+    "project_name": "Fundraising Campaign Manager",
+    "module_name": "fundraising_campaign",
+    "class_name": "FundraisingCampaignManager",
+    "requirements_file": "examples/fundraising_campaign_requirements.md"
+  },
+  {
+    "slug": "job_application_tracker",
+    "project_name": "Job Application Tracker",
+    "module_name": "job_application_tracker",
+    "class_name": "JobApplicationTracker",
+    "requirements_file": "examples/job_application_tracker_requirements.md"
+  },
+  {
+    "slug": "recruitment_pipeline",
+    "project_name": "Recruitment Pipeline Manager",
+    "module_name": "recruitment_pipeline",
+    "class_name": "RecruitmentPipelineManager",
+    "requirements_file": "examples/recruitment_pipeline_requirements.md"
+  },
+  {
+    "slug": "okr_tracker",
+    "project_name": "OKR Tracker",
+    "module_name": "okr_tracker",
+    "class_name": "OKRTracker",
+    "requirements_file": "examples/okr_tracker_requirements.md"
+  },
+  {
+    "slug": "project_risk_register",
+    "project_name": "Project Risk Register",
+    "module_name": "risk_register",
+    "class_name": "RiskRegister",
+    "requirements_file": "examples/project_risk_register_requirements.md"
+  },
+  {
+    "slug": "bug_tracker",
+    "project_name": "Bug Tracking System",
+    "module_name": "bug_tracker",
+    "class_name": "BugTracker",
+    "requirements_file": "examples/bug_tracker_requirements.md"
+  },
+  {
+    "slug": "helpdesk_sla_tracker",
+    "project_name": "Helpdesk SLA Tracker",
+    "module_name": "sla_tracker",
+    "class_name": "SLATracker",
+    "requirements_file": "examples/helpdesk_sla_tracker_requirements.md"
+  },
+  {
+    "slug": "purchase_order_manager",
+    "project_name": "Purchase Order Manager",
+    "module_name": "purchase_order_manager",
+    "class_name": "PurchaseOrderManager",
+    "requirements_file": "examples/purchase_order_manager_requirements.md"
+  },
+  {
+    "slug": "vendor_manager",
+    "project_name": "Vendor Performance Manager",
+    "module_name": "vendor_manager",
+    "class_name": "VendorManager",
+    "requirements_file": "examples/vendor_manager_requirements.md"
+  },
+  {
+    "slug": "customer_feedback_analyzer",
+    "project_name": "Customer Feedback Manager",
+    "module_name": "feedback_manager",
+    "class_name": "FeedbackManager",
+    "requirements_file": "examples/customer_feedback_analyzer_requirements.md"
+  },
+  {
+    "slug": "simple_text_classifier",
+    "project_name": "Rule-Based Text Classifier",
+    "module_name": "text_classifier",
+    "class_name": "TextClassifier",
+    "requirements_file": "examples/simple_text_classifier_requirements.md"
+  },
+  {
+    "slug": "resume_screening_helper",
+    "project_name": "Resume Screening Helper",
+    "module_name": "resume_screening",
+    "class_name": "ResumeScreeningHelper",
+    "requirements_file": "examples/resume_screening_helper_requirements.md"
+  },
+  {
+    "slug": "document_template_generator",
+    "project_name": "Document Template Generator",
+    "module_name": "document_generator",
+    "class_name": "DocumentGenerator",
+    "requirements_file": "examples/document_template_generator_requirements.md"
+  },
+  {
+    "slug": "content_calendar",
+    "project_name": "Content Calendar Planner",
+    "module_name": "content_calendar",
+    "class_name": "ContentCalendar",
+    "requirements_file": "examples/content_calendar_requirements.md"
+  },
+  {
+    "slug": "social_media_idea_bank",
+    "project_name": "Social Media Idea Bank",
+    "module_name": "idea_bank",
+    "class_name": "IdeaBank",
+    "requirements_file": "examples/social_media_idea_bank_requirements.md"
+  },
+  {
+    "slug": "school_fee_tracker",
+    "project_name": "School Fee Tracker",
+    "module_name": "school_fee_tracker",
+    "class_name": "SchoolFeeTracker",
+    "requirements_file": "examples/school_fee_tracker_requirements.md"
+  },
+  {
+    "slug": "student_behavior_observation",
+    "project_name": "Student Behavior Observation Log",
+    "module_name": "behavior_observation",
+    "class_name": "BehaviorObservationLog",
+    "requirements_file": "examples/student_behavior_observation_requirements.md"
+  },
+  {
+    "slug": "lesson_plan_manager",
+    "project_name": "Lesson Plan Manager",
+    "module_name": "lesson_plan_manager",
+    "class_name": "LessonPlanManager",
+    "requirements_file": "examples/lesson_plan_manager_requirements.md"
+  },
+  {
+    "slug": "worksheet_generator",
+    "project_name": "Worksheet Question Bank Manager",
+    "module_name": "worksheet_manager",
+    "class_name": "WorksheetManager",
+    "requirements_file": "examples/worksheet_generator_requirements.md"
+  },
+  {
+    "slug": "abacus_practice_generator",
+    "project_name": "Abacus Practice Sheet Generator",
+    "module_name": "abacus_practice",
+    "class_name": "AbacusPracticeGenerator",
+    "requirements_file": "examples/abacus_practice_generator_requirements.md"
+  },
+  {
+    "slug": "clinic_test_booking",
+    "project_name": "Diagnostic Test Booking Manager",
+    "module_name": "diagnostic_booking",
+    "class_name": "DiagnosticBookingManager",
+    "requirements_file": "examples/clinic_test_booking_requirements.md"
+  },
+  {
+    "slug": "pharmacy_stock_tracker",
+    "project_name": "Pharmacy Stock Tracker",
+    "module_name": "pharmacy_stock",
+    "class_name": "PharmacyStockTracker",
+    "requirements_file": "examples/pharmacy_stock_tracker_requirements.md"
+  },
+  {
+    "slug": "vehicle_service_tracker",
+    "project_name": "Vehicle Service Tracker",
+    "module_name": "vehicle_service",
+    "class_name": "VehicleServiceTracker",
+    "requirements_file": "examples/vehicle_service_tracker_requirements.md"
+  },
+  {
+    "slug": "property_rental_manager",
+    "project_name": "Property Rental Manager",
+    "module_name": "rental_manager",
+    "class_name": "RentalManager",
+    "requirements_file": "examples/property_rental_manager_requirements.md"
+  },
+  {
+    "slug": "travel_itinerary_planner",
+    "project_name": "Travel Itinerary Planner",
+    "module_name": "travel_itinerary",
+    "class_name": "TravelItineraryPlanner",
+    "requirements_file": "examples/travel_itinerary_planner_requirements.md"
+  },
+  {
+    "slug": "personal_budget_planner",
+    "project_name": "Personal Budget Planner",
+    "module_name": "budget_planner",
+    "class_name": "BudgetPlanner",
+    "requirements_file": "examples/personal_budget_planner_requirements.md"
+  },
+  {
+    "slug": "loan_repayment_tracker",
+    "project_name": "Loan Repayment Tracker",
+    "module_name": "loan_tracker",
+    "class_name": "LoanTracker",
+    "requirements_file": "examples/loan_repayment_tracker_requirements.md"
+  },
+  {
+    "slug": "insurance_policy_tracker",
+    "project_name": "Insurance Policy Tracker",
+    "module_name": "policy_tracker",
+    "class_name": "PolicyTracker",
+    "requirements_file": "examples/insurance_policy_tracker_requirements.md"
+  },
+  {
+    "slug": "warranty_claim_tracker",
+    "project_name": "Warranty Claim Tracker",
+    "module_name": "warranty_claim_tracker",
+    "class_name": "WarrantyClaimTracker",
+    "requirements_file": "examples/warranty_claim_tracker_requirements.md"
+  },
+  {
+    "slug": "manufacturing_job_card",
+    "project_name": "Manufacturing Job Card Tracker",
+    "module_name": "job_card_tracker",
+    "class_name": "JobCardTracker",
+    "requirements_file": "examples/manufacturing_job_card_requirements.md"
+  },
+  {
+    "slug": "quality_inspection_log",
+    "project_name": "Quality Inspection Log",
+    "module_name": "quality_inspection",
+    "class_name": "QualityInspectionLog",
+    "requirements_file": "examples/quality_inspection_log_requirements.md"
+  },
+  {
+    "slug": "warehouse_dispatch_tracker",
+    "project_name": "Warehouse Dispatch Tracker",
+    "module_name": "dispatch_tracker",
+    "class_name": "DispatchTracker",
+    "requirements_file": "examples/warehouse_dispatch_tracker_requirements.md"
+  },
+  {
+    "slug": "daily_work_log",
+    "project_name": "Daily Work Log Manager",
+    "module_name": "work_log",
+    "class_name": "WorkLogManager",
+    "requirements_file": "examples/daily_work_log_requirements.md"
+  },
+  {
+    "slug": "meeting_action_tracker",
+    "project_name": "Meeting Action Item Tracker",
+    "module_name": "action_tracker",
+    "class_name": "ActionTracker",
+    "requirements_file": "examples/meeting_action_tracker_requirements.md"
+  },
+  {
+    "slug": "legal_case_tracker",
+    "project_name": "Legal Case Tracker",
+    "module_name": "case_tracker",
+    "class_name": "CaseTracker",
+    "requirements_file": "examples/legal_case_tracker_requirements.md"
+  },
+  {
+    "slug": "service_request_manager",
+    "project_name": "Home Service Request Manager",
+    "module_name": "service_request_manager",
+    "class_name": "ServiceRequestManager",
+    "requirements_file": "examples/service_request_manager_requirements.md"
+  },
+  {
+    "slug": "parcel_tracking_manager",
+    "project_name": "Parcel Tracking Manager",
+    "module_name": "parcel_tracker",
+    "class_name": "ParcelTracker",
+    "requirements_file": "examples/parcel_tracking_manager_requirements.md"
+  },
+  {
+    "slug": "recipe_cost_calculator",
+    "project_name": "Recipe Cost Calculator",
+    "module_name": "recipe_cost_calculator",
+    "class_name": "RecipeCostCalculator",
+    "requirements_file": "examples/recipe_cost_calculator_requirements.md"
+  },
+  {
+    "slug": "coconut_oil_batch_tracker",
+    "project_name": "Edible Oil Batch Production Tracker",
+    "module_name": "oil_batch_tracker",
+    "class_name": "OilBatchTracker",
+    "requirements_file": "examples/coconut_oil_batch_tracker_requirements.md"
+  },
+  {
+    "slug": "simple_calculator_suite",
+    "project_name": "Business Calculator Suite",
+    "module_name": "business_calculator",
+    "class_name": "BusinessCalculator",
+    "requirements_file": "examples/simple_calculator_suite_requirements.md"
+  },
+  {
+    "slug": "unit_conversion_toolkit",
+    "project_name": "Unit Conversion Toolkit",
+    "module_name": "unit_converter",
+    "class_name": "UnitConverter",
+    "requirements_file": "examples/unit_conversion_toolkit_requirements.md"
+  }
+]

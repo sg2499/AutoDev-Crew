@@ -1,0 +1,9 @@
+-e .
+crewai
+crewai-tools
+gradio
+openai
+python-dotenv
+pydantic
+pyyaml
+pandas

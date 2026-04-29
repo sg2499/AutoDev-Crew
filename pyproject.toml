@@ -1,0 +1,29 @@
+[project]
+name = "engineering_team"
+version = "1.0.0"
+description = "AutoDev Crew: GPT-4o powered multi-agent SDLC software generator with Gradio dashboard, validation, repair loop, Docker, CI/CD, deployment assets, and observability artifacts"
+authors = [{ name = "Shailesh Gupta", email = "shaileshgupta841@gmail.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.108.0,<1.0.0",
+    "gradio>=5.22.0",
+    "python-dotenv>=1.0.1",
+    "openai>=1.0.0",
+    "pandas>=2.0.0",
+]
+
+[project.scripts]
+engineering_team = "engineering_team.main:run"
+run_crew = "engineering_team.main:run"
+autodev_dashboard = "engineering_team.dashboard:launch"
+dashboard = "engineering_team.dashboard:launch"
+train = "engineering_team.main:train"
+replay = "engineering_team.main:replay"
+test = "engineering_team.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
