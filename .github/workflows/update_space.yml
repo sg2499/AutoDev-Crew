@@ -28,7 +28,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.hf_token }}
         run: |
-          huggingface-cli login --token "$HF_TOKEN"
+          hf auth login --token "$HF_TOKEN"
 
       - name: Deploy to Hugging Face Spaces
         env:
