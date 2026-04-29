@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      HF_TOKEN: ${{ secrets.hf_token }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,13 +28,9 @@ jobs:
           pip install "gradio==5.49.1"
 
       - name: Login to Hugging Face
-        env:
-          HF_TOKEN: ${{ secrets.hf_token }}
         run: |
           hf auth login --token "$HF_TOKEN"
 
       - name: Deploy to Hugging Face Spaces
-        env:
-          HF_TOKEN: ${{ secrets.hf_token }}
         run: |
-          gradio deploy --app-file app.py --hf-token "$HF_TOKEN"
+          gradio deploy --app-file app.py
