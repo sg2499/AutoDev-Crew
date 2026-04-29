@@ -60,3 +60,8 @@ AutoDev Crew treats the backend implementation and tests as the source of truth.
 This normalization step is intentionally conservative. It prioritizes reliable demos over visually bespoke but brittle generated UI. The resulting app groups public backend methods into action, list/filter/search, reporting, and miscellaneous workflow tabs. Each method receives a small form, a readable Markdown status area, and a table-safe output component.
 
 All table outputs are converted through scalar cell normalization. Dictionaries, lists, dataclasses, custom objects, and nested structures are flattened into readable strings or pandas DataFrames before reaching Gradio.
+
+
+## Public Access and API Key Handling
+
+The studio uses a bring-your-own-key access model for public demos. A user must paste their own OpenAI API key in the dashboard before generation begins. This avoids exposing the project owner's API key and prevents public visitors from consuming the owner's OpenAI credits.

@@ -1,2 +1,11 @@
-# AutoDev-Crew
-Agentic AI software engineering studio that transforms natural-language requirements into backend code, adaptive Gradio apps, tests, documentation, validation reports, and production-ready assets using CrewAI and OpenAI GPT-4o.
+# Assets
+
+Use this folder for portfolio screenshots, dashboard captures, generated-project screenshots, architecture diagrams, and demo thumbnails.
+
+Recommended images:
+
+- dashboard-home.png
+- generated-files-preview.png
+- validation-report.png
+- production-assets.png
+- architecture-diagram.png

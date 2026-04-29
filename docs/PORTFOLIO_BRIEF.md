@@ -35,3 +35,8 @@ AutoDev Crew demonstrates how a specialized team of AI agents can collaborate ac
 ## Latest Product Upgrade
 
 AutoDev Crew now includes an adaptive UI-generation policy. The generated Gradio app is instructed to select output components based on the problem type and data shape, so trackers, inventory tools, ticket desks, calculators, reports, search tools, and educational apps can present results in a more natural product-style format instead of relying on raw JSON outputs.
+
+
+## Public Access and API Key Handling
+
+The studio uses a bring-your-own-key access model for public demos. A user must paste their own OpenAI API key in the dashboard before generation begins. This avoids exposing the project owner's API key and prevents public visitors from consuming the owner's OpenAI credits.

@@ -1,0 +1,417 @@
+product_spec_task:
+  description: >
+    Create a clear MVP product specification from the user's raw requirements.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    Backend import name: {module_import}
+    Primary class name: {class_name}
+    Frontend framework: Gradio
+
+    Treat the request as a dynamic software-generation problem, not as a fixed template.
+    First infer the product category, target users, main entities, expected workflows, and the
+    most useful way the generated app should present results to the user. The generated app may be
+    a tracker, calculator, CRUD tool, recommender, scheduler, analyzer, educational tool, inventory
+    manager, workflow assistant, reporting dashboard, or another small software product that can be
+    represented as a local Python backend plus Gradio UI.
+
+    Include:
+    - product overview
+    - inferred product category
+    - target user/persona
+    - problem statement
+    - MVP scope
+    - core features
+    - key entities/data objects
+    - expected inputs and outputs
+    - user-facing output display expectations, such as table, form, markdown report, numeric KPI,
+      downloadable file, or simple text response
+    - out-of-scope items
+    - assumptions
+    - acceptance criteria
+    - main user journeys
+    - risk notes
+
+    IMPORTANT: Output only markdown.
+  expected_output: >
+    A concise but complete markdown product specification for the generated software project,
+    including a clear user-facing display contract.
+  agent: product_manager
+  output_file: "{run_output_dir}/01_product_spec.md"
+
+architecture_task:
+  description: >
+    Create an implementation-ready technical architecture based on the product specification.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    Backend import name: {module_import}
+    Primary class name: {class_name}
+    Frontend framework: Gradio
+
+    Design the solution dynamically around the inferred problem type. Do not assume every project is
+    an expense tracker, task manager, account system, or CRUD app. Select data structures, methods,
+    validation rules, and UI outputs that fit the requirements.
+
+    Include:
+    - architecture overview
+    - inferred application type and why that type fits the requirements
+    - proposed folder/file layout for generated artifacts
+    - backend module responsibilities
+    - primary classes and functions
+    - data model/data structures
+    - validation and error-handling approach
+    - adaptive Gradio UI approach
+    - output component plan that maps each user action to the most suitable display type
+    - unit testing approach
+    - security considerations
+    - known limitations and extension points
+
+    Output component guidance:
+    - Collections of records should be displayed as tables.
+    - Summaries and reports should be displayed as readable markdown and/or summary tables.
+    - Numeric results should use numbers or compact text.
+    - Ranking/recommendation/search results should use tables with useful columns.
+    - Generated text/content should use markdown or textbox output.
+    - File-producing workflows should provide downloadable files.
+    - Raw JSON should be avoided in normal product UI unless the user explicitly asks for an API/debug/schema viewer.
+
+    IMPORTANT: Output only markdown.
+  expected_output: >
+    A markdown architecture document that can guide backend, frontend, testing, review, and documentation work.
+  agent: solution_architect
+  context:
+    - product_spec_task
+  output_file: "{run_output_dir}/02_architecture.md"
+
+design_task:
+  description: >
+    Create a detailed backend implementation design from the architecture.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    Backend import name: {module_import}
+    Primary class name: {class_name}
+
+    The design must be specific to the user's requested product. Avoid generic placeholder methods.
+    Define a backend API that is simple for the Gradio app to call and that returns user-friendly,
+    deterministic data structures.
+
+    Include:
+    - module purpose
+    - class and function list
+    - method signatures
+    - attributes/data structures
+    - validations and business rules
+    - expected return values
+    - display-ready helper methods when useful, such as methods that return lists of records,
+      summary dictionaries, report strings, or table-ready rows
+    - edge cases
+    - testing guidance
+
+    IMPORTANT: Output only markdown.
+  expected_output: >
+    A detailed markdown design document that a backend engineer can directly implement.
+  agent: engineering_lead
+  context:
+    - product_spec_task
+    - architecture_task
+  output_file: "{run_output_dir}/03_{module_import}_design.md"
+
+code_task:
+  description: >
+    Implement the backend module based on the product specification, architecture, and backend design.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    Backend import name: {module_import}
+    Primary class name: {class_name}
+
+    The output must be a single self-contained Python module. Avoid external services unless the requirement
+    explicitly demands them. Include helpful docstrings, type hints where useful, and defensive validation.
+    The file will be syntax-checked and imported by generated tests during local validation.
+
+    Backend behavior requirements:
+    - Implement the actual requested domain and workflows, not a generic placeholder app.
+    - Keep state in memory unless the requirements explicitly request persistence.
+    - Return predictable values from methods, such as booleans/messages, dictionaries, lists of dictionaries,
+      numeric totals, or readable report strings.
+    - Include validation for invalid inputs and invalid state transitions.
+    - Make data returned by list/search/filter methods easy for the Gradio frontend to convert into tables.
+    - Do not require network calls, paid APIs, databases, or hidden credentials unless explicitly requested.
+    - Use explicit, well-named constants or mappings for allowed values. Avoid fragile dynamic attribute lookups that can create misspelled names such as STATUSS instead of STATUSES.
+    - Keep method names, return structures, and error behavior simple and predictable so tests and frontend callbacks can use them reliably.
+
+    IMPORTANT:
+    - Output ONLY raw Python code.
+    - Do not include markdown, explanations, or backticks.
+    - The code must be importable as: from {module_import} import {class_name}
+  expected_output: >
+    Raw valid Python code for {module_file}.
+  agent: backend_engineer
+  context:
+    - product_spec_task
+    - architecture_task
+    - design_task
+  output_file: "{run_output_dir}/{module_file}"
+
+frontend_task:
+  description: >
+    Build a Gradio app that demonstrates the generated backend module.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    Backend import name: {module_import}
+    Primary class name: {class_name}
+    Frontend framework: Gradio
+
+    The UI should allow a reviewer to quickly test the main functionality from a browser.
+    It should import from {module_import}, instantiate/use {class_name} where appropriate,
+    and provide readable success/error messages. The app should remain safe to import during validation;
+    only launch Gradio inside if __name__ == "__main__".
+
+    Build the UI dynamically for the requested app type. Do not copy the UI pattern from a previous
+    task unless it genuinely fits the new requirements. Use Gradio only.
+
+    Mandatory Gradio structure:
+    - For every generated app, use `with gr.Blocks(title=...) as app:` as the top-level container.
+    - Do NOT use `gr.Interface` for generated apps. AutoDev Crew generates multi-workflow product UIs,
+      so Blocks is the safe default even for small apps.
+    - Do NOT write `with gr.Interface(...) as app:` because Interface requires fn, inputs, and outputs
+      and is not valid as a generic tabbed app container.
+    - Use `with gr.Tab("Name"):` or `with gr.Tabs():` plus `gr.Tab(...)` for workflow sections.
+    - Put `app.launch()` only inside `if __name__ == "__main__":`.
+    - The app must be importable without launching the server; validation will import app.py to catch
+      Gradio construction errors before the user runs it manually.
+
+    Adaptive output-display rules:
+    - Choose the output component based on the user's domain, workflow, and data shape.
+    - Use gr.Dataframe for user-facing collections of similarly shaped records: expenses, tasks,
+      transactions, accounts, products, orders, invoices, customers, users, employees, inventory,
+      appointments, bookings, search results, recommendation results, leaderboard rows, audit rows,
+      schedules, logs, or any other tabular/list result.
+    - Convert list-of-dict, list-of-object, dataclass-like objects, or tuple-based backend results into table
+      rows with clear headers before returning them to gr.Dataframe.
+    - Every value returned to a gr.Dataframe cell must be display-safe and primitive: string, int, float,
+      bool, None, or date/time formatted as a string. Never return raw dictionaries, lists, sets, custom
+      objects, or nested structures inside dataframe cells because Gradio/browser rendering may show
+      them as [object Object]. Flatten nested values, join lists into readable comma-separated strings,
+      and serialize small nested dictionaries into readable text only when necessary.
+    - Add reusable helpers such as format_cell(value), records_to_rows(records, columns),
+      objects_to_rows(objects, columns), and summary_to_markdown(summary) whenever the backend returns
+      dictionaries, objects, lists, or nested values.
+    - After create/update/delete actions, return both a human-readable status message and, when useful,
+      a refreshed table showing the affected records in product-friendly columns.
+    - Use gr.Markdown for summaries, reports, generated explanations, instructions, analytics narratives,
+      educational content, formatted receipts, or multi-section text.
+    - Use gr.Number or compact gr.Textbox outputs for single numeric calculations, scores, totals, or IDs.
+    - Use gr.Label only when the product is classification-style and a label/confidence result is appropriate.
+    - Use gr.File only when the generated app creates a downloadable file.
+    - Use gr.Textbox for plain text input/output, short generated content, or editable text.
+    - Use gr.JSON only when the user specifically asks for raw JSON/API/debug/schema output or when the
+      result is deeply nested technical data that would be misleading as a table. Do not use gr.JSON for
+      normal business records, trackers, summaries, filters, or user-facing reports.
+    - If a backend method returns a dictionary summary, convert it into readable markdown, KPI values,
+      or a two-column table where practical.
+    - Include empty-state messages for tables and summaries when there is no data yet.
+    - Use tabs or grouped sections that match the user's workflows.
+    - The generated interface should feel like a small product UI, not an API/debug viewer.
+
+    Completeness requirements:
+    - Implement every workflow section requested by the user. Do not create empty tabs, placeholder tabs, or navigation-only tabs.
+    - Every tab must contain visible controls, outputs, and at least one useful action unless it is a pure information/summary section.
+    - For multi-entity products, each entity tab must include the required create/list/search/filter/update/delete operations that apply to that entity.
+    - If requirements mention a workflow such as Product Management, Purchase Orders, Receive Orders, Stock Movements, Reports, or Dashboard, that tab must contain working input components, buttons, output components, and callbacks wired to backend methods.
+    - Buttons must have callback functions that catch expected exceptions and return readable error messages instead of surfacing a red Gradio error popup.
+    - Dashboard/report buttons must handle empty state gracefully, such as returning "No data available yet" or zero-value summaries.
+    - Do not generate UI sections that only show a tab label with no internal content.
+
+    Robustness requirements:
+    - Add lightweight formatter functions in app.py where needed, such as format_cell(), records_to_rows(),
+      objects_to_rows(), summary_to_markdown(), or normalize_message().
+    - `format_cell(value)` must explicitly handle None, list, tuple, set, dict, dataclass-like objects,
+      and normal scalar values. Lists/sets/tuples should become comma-separated text. Dicts should become
+      compact `key: value` text unless they are being rendered as separate rows.
+    - Any function that returns rows to gr.Dataframe must return `list[list[scalar]]`, not list[dict],
+      list[object], pandas objects, or nested lists/dicts inside cells.
+    - Use `gr.Dataframe` exactly, not inconsistent aliases, and give it clear headers.
+    - Keep component outputs consistent with function return values.
+    - Avoid returning raw Python objects to components that expect strings or table rows.
+    - Never feed raw dictionaries/objects/lists directly into gr.Dataframe. Always convert them into
+      explicit rows with scalar cells and clear headers.
+    - For multi-entity apps, create a separate formatter for each table when the entities have different
+      columns, such as doctors_to_rows(), patients_to_rows(), appointments_to_rows(), products_to_rows(),
+      tickets_to_rows(), or invoices_to_rows().
+    - The app must run locally with python app.py from the generated project folder.
+
+
+    Reliability rule:
+    - The generated app should preferably return pandas.DataFrame objects to gr.Dataframe outputs, or explicit list-of-lists with scalar cells.
+    - Never return list-of-dict, dict, dataclass, object instances, or nested structures directly to gr.Dataframe.
+    - If unsure about table shape, convert records through a formatter that returns a pandas.DataFrame with flattened scalar values.
+    - AutoDev Crew may replace a fragile custom Gradio UI with a deterministic safe UI built from the backend public API, so keep the backend method signatures descriptive and stable.
+
+    IMPORTANT:
+    - Use Gradio only for the frontend.
+    - Always use `gr.Blocks`, never `gr.Interface`, for the generated app.
+    - Never leave requested tabs empty; source validation will fail empty or placeholder tabs.
+    - Output ONLY raw Python code.
+    - Do not include markdown, explanations, or backticks.
+  expected_output: >
+    Raw valid Python code for {app_file}.
+  agent: frontend_engineer
+  context:
+    - product_spec_task
+    - architecture_task
+    - design_task
+    - code_task
+  output_file: "{run_output_dir}/{app_file}"
+
+test_task:
+  description: >
+    Write unit tests for the generated backend module.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    Backend import name: {module_import}
+    Primary class name: {class_name}
+
+    Tests must import from {module_import}. Cover normal flows, invalid inputs, state transitions,
+    and edge cases described in the requirements, product spec, architecture, and design.
+    These tests will be executed automatically by the local validation gate, so they must be runnable
+    from the generated output folder using python -m unittest {test_file}.
+
+    IMPORTANT:
+    - Use Python unittest unless another standard-library approach is clearly better.
+    - Test the generated public API that actually exists in the backend design/code. Do not invent private attributes or constants unless the requirements clearly require them.
+    - Prefer behavior-based tests over brittle implementation-detail tests.
+    - If the domain has allowed values such as statuses, categories, or priorities, verify them through public methods, valid/invalid operations, or documented class constants that actually exist.
+    - Ensure every test assertion matches the requirements and the generated backend contract.
+    - Output ONLY raw Python code.
+    - Do not include markdown, explanations, or backticks.
+  expected_output: >
+    Raw valid Python code for {test_file}.
+  agent: test_engineer
+  context:
+    - product_spec_task
+    - architecture_task
+    - design_task
+    - code_task
+  output_file: "{run_output_dir}/{test_file}"
+
+code_review_task:
+  description: >
+    Review the generated backend, frontend, and tests using the available context.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    App file: {app_file}
+    Test file: {test_file}
+    Primary class name: {class_name}
+
+    Assess:
+    - requirement coverage
+    - correctness risks
+    - maintainability
+    - error handling
+    - edge cases
+    - API consistency
+    - frontend usability
+    - whether the frontend display components match the problem type and user expectations
+    - whether records/lists are shown as tables instead of raw JSON
+    - whether dataframe cells contain only primitive display-safe values, not raw dicts/lists/objects
+    - unit test coverage gaps
+    - recommended improvements
+
+    IMPORTANT: Output only markdown. Be specific and actionable.
+  expected_output: >
+    A markdown code review report with strengths, issues, severity levels, and recommended improvements.
+  agent: code_reviewer
+  context:
+    - product_spec_task
+    - architecture_task
+    - design_task
+    - code_task
+    - frontend_task
+    - test_task
+  output_file: "{run_output_dir}/04_code_review.md"
+
+security_review_task:
+  description: >
+    Review the generated backend and Gradio app for practical security and safe-demo concerns.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    App file: {app_file}
+    Primary class name: {class_name}
+
+    Assess:
+    - input validation
+    - unsafe file/system operations
+    - secret handling
+    - dependency risk
+    - data exposure
+    - authentication/authorization assumptions, if relevant
+    - Gradio deployment cautions
+    - safe local demo recommendations
+
+    IMPORTANT: Output only markdown. Be specific and practical.
+  expected_output: >
+    A markdown security review report with risk ratings and recommended mitigations.
+  agent: security_reviewer
+  context:
+    - product_spec_task
+    - architecture_task
+    - code_task
+    - frontend_task
+  output_file: "{run_output_dir}/05_security_review.md"
+
+documentation_task:
+  description: >
+    Write a professional README for the generated software project.
+
+    Project name: {project_name}
+    Requirements: {requirements}
+    Backend module file: {module_file}
+    Backend import name: {module_import}
+    App file: {app_file}
+    Test file: {test_file}
+    Primary class name: {class_name}
+    Frontend framework: Gradio
+
+    Include:
+    - project title and overview
+    - generated artifact list
+    - features
+    - architecture summary
+    - UI/workflow summary
+    - setup instructions
+    - how to run the Gradio app
+    - how to run tests
+    - example usage
+    - security notes
+    - limitations
+    - future improvements
+
+    IMPORTANT: Output only markdown.
+  expected_output: >
+    A polished markdown README for the generated project.
+  agent: documentation_agent
+  context:
+    - product_spec_task
+    - architecture_task
+    - design_task
+    - code_task
+    - frontend_task
+    - test_task
+    - code_review_task
+    - security_review_task
+  output_file: "{run_output_dir}/README_GENERATED_PROJECT.md"
